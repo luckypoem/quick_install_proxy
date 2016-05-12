@@ -35,6 +35,12 @@ openssl s_client -connect 127.0.0.1:3130 -cert /etc/squid/squid_https.cert
 
 * Change firewall rules to allow TCP incoming for HTTP(3128) and HTTPS(3130) port
 
+```
+iptables -A INPUT -s 127.0.0.1 -p tcp --dport 3128 -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 3130 -j ACCEPT
+```
+
+
 * Open Chrome browser and install [SwitchOmega plugin](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=en), add HTTPS(or SSL) Proxy setting to IP:3130
 
 * Import the cert file to the System. 
