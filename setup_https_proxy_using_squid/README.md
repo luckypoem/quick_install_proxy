@@ -33,9 +33,9 @@ openssl s_client -connect 127.0.0.1:3130 -cert /etc/squid/squid_https.cert
 
 ```
 
-* Change firewall rules to allow TCP incoming for 3128(HTTP) and 3130(HTTP) port
+* Change firewall rules to allow TCP incoming for HTTP(3128) and HTTPS(3130) port
 
-* Open Chrome browser and install [SwitchOmega plugin](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=en), configure the Proxy to HTTPS(or SSL) Proxy to IP:3130
+* Open Chrome browser and install [SwitchOmega plugin](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=en), add HTTPS(or SSL) Proxy setting to IP:3130
 
 * Import the cert file to the System. 
 - For Mac OS, just double click the file, then it will be open with KeyChain Access, choose 'Always Trust' for this 
@@ -55,7 +55,7 @@ The installation script will install these files to system:
 * Allow only few IP for accessing 3128/3130 port.
 * Disable HTTP proxy if possible.
 * Use user/password for auth.
-* verify the peer cert
+* verify the peer cert(TODO)
 
 ## TODO
-* verify the client cert, only clients with certificate can login this https proxy.
+* verify the client, only clients with certificate can login this https proxy.
