@@ -1,10 +1,13 @@
 #!/bin/sh
-
+###################################
+# set these before run!!
+DOMAIN_NAME=103.253.25.150
 DEFAULT_PROXY_AUTH_USER=proxy
 DEFAULT_PROXY_AUTH_PASSWORD=Jasdfa79aslocUsdRqcda3
 
 SQUID_VERSION=3.5.17
 
+###################################
 DOWNLOAD_DIR=~/Downloads/
 SOURCE_SQUID_CONF="`pwd`/squid.conf"
 DEST_SQUID_CONF=/etc/squid/squid.conf
@@ -92,7 +95,7 @@ squid -z
 
 echo "generate the self-signed cert for squild and chrome"
 # interative ask you for params. set CommonName to the ip of VPS
-openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout $DEST_PRIVATE_PEM -out $DEST_PUB_PEM
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048  -subj "/C=US/ST=Oregon/L=Portland/CN=$DOMAIN_NAME" -keyout $DEST_PRIVATE_PEM -out $DEST_PUB_PEM
 cat  $DEST_PRIVATE_PEM $DEST_PUB_PEM > $DEST_CERT_FOR_CLIENT
 chmod 400 $DEST_PRIVATE_PEM
 chmod 400 $DEST_PUB_PEM
