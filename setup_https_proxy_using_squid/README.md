@@ -27,7 +27,7 @@ curl --proxy http://127.0.0.1:3128 http://example.com
 curl --proxy-user proxy:Jasdfa79aslocUsdRqcda3 --proxy http://127.0.0.1:3128 http://example.com
 
 # get the access denied page
-openssl s_client -connect 127.0.0.1:3130 -cert /etc/squid/squid_https.cert
+openssl s_client -connect 127.0.0.1:3130 -CAfile /etc/squid/squid_https.cert
 >>GET http://example.com HTTP/1.1 [ENTER] [ENTER]
 >>[Ctrl-D]
 
